@@ -1,8 +1,8 @@
 
+import {Parser} from 'node-sql-parser';
 
-function main() {
-    let a = "test"
-    console.log("a")
-}
+const parser = new Parser();
+const ast = parser.astify('SELECT A.id, B.name from (select id, gender from T1) A, B where A.id = B.Id'); 
 
-main()
+
+console.log(ast)
